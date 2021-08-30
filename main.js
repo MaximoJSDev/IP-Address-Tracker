@@ -1,22 +1,26 @@
-
-  // Formulario
-  const form = document.querySelector(".form");
-  const input = document.querySelector(".form__input");
-  // Informacion
-  const ip = document.getElementById("ip");
-  const locations = document.getElementById("location");
-  const timezone = document.getElementById("timezone");
-  const isp = document.getElementById("isp");
-  // Map
-  var lat;
-  var lng;
-  const titlesProvider = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
+// Formulario
+const form = document.querySelector(".form");
+const input = document.querySelector(".form__input");
+// Informacion
+const ip = document.getElementById("ip");
+const locations = document.getElementById("location");
+const timezone = document.getElementById("timezone");
+const isp = document.getElementById("isp");
+// Map
+var lat;
+var lng;
+const titlesProvider = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("HI");
   let ipInput = input.value;
-  pedirInfo(ipInput);
+  if (ipInput !== "" && ipInput !== undefined) {
+    //console.log("HI");
+    pedirInfo(ipInput);
+  }
+  else {
+    alert("Please enter a valid IP address");
+  }
 });
 const pedirInfo = async (ipInput) => {
   try {
@@ -31,21 +35,21 @@ const pedirInfo = async (ipInput) => {
     actualizarMapa();
   } catch (error) {
     console.log(error);
-    alert("Parece que ocurrio un error, intenta con otra IP");
+    alert("Please enter a valid IP address");
   }
 };
 const pintarInfo = (data) => {
   ip.textContent = data.ip;
   locations.textContent = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
-  timezone.textContent = data.location.timezone;
+  timezone.textContent = "UTC " + data.location.timezone;
   isp.textContent = data.isp;
+  //console.log(data);
 };
 
 const actualizarMapa = () => {
-  map.setView([lat,lng], 13);
-
+  map.setView([lat, lng], 13);
 };
-var map = L.map("map").setView([51.505, -0.09],13)
+var map = L.map("map").setView([37.38605, -122.08385], 13);
 L.tileLayer(titlesProvider, {
   maxZoom: 18,
 }).addTo(map);
