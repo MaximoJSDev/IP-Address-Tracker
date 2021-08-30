@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Address Tracker Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title"><span>IP</span> Address Tracker</h1>
+      <form class="form">
+        <input
+          class="form__input"
+          type="text"
+          placeholder="Search for any IP address or domain"
+        />
+        <button class="form__btn">
+          <img class="form__btn__arrow" src="./images/icon-arrow.svg" alt="" />
+        </button>
+      </form>
+
+      <div class="modal-map">
+        <div class="modal-map__info">
+          <h2 class="info__title">IP ADDRESS</h2>
+          <p class="info__dates" id="ip">192.212.174.101</p>
+        </div>
+        <div class="modal-map__info">
+          <h3 class="info__title">LOCATION</h3>
+          <p class="info__dates" id="location">Brooklyn, NY 100001</p>
+        </div>
+        <div class="modal-map__info">
+          <h3 class="info__title">TIMEZONE</h3>
+          <p class="info__dates" id="timezone">UTC -05:00</p>
+        </div>
+        <div class="modal-map__info">
+          <h3 class="info__title">ISP</h3>
+          <p class="info__dates" id="isp">SpaceX Starlink</p>
+        </div>
+      </div>
+    </header>
+    
+    <div id="map"></div>
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+    <script src="main.js"></script>
+  </body>
+</html>
