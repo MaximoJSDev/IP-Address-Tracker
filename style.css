@@ -1,164 +1,170 @@
 :root {
-/* - Mobile: 375px
+  /* - Mobile: 375px
 - Desktop: 1440px */
---Very-Dark-Gray: hsl(0, 0%, 17%);
---Dark-Gray: hsl(0, 0%, 59%);
---Font-size: 18px;
+  --Very-Dark-Gray: hsl(0, 0%, 17%);
+  --Dark-Gray: hsl(0, 0%, 59%);
+  --Font-size: 18px;
 }
 body {
-    font-size: var(--font-size);
-    font-family: 'Rubik', sans-serif;
-    height: 100vh
+  font-size: var(--font-size);
+  font-family: "Rubik", sans-serif;
+  height: 100vh;
 }
-*,*::before,*::after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 .header {
-    position: relative;
-    min-height: 340px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column;
-    padding: 30px;
-    background: url(./images/pattern-bg.png) no-repeat;
-    background-size: cover;
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  background: url(./images/pattern-bg.png) no-repeat;
+  background-size: cover;
 }
 .header::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background-color: rgb(42, 42, 42);
-    filter: blur(15px);
-    z-index: 1000;
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: rgb(42, 42, 42);
+  filter: blur(15px);
+  z-index: 1000;
 }
 .header__title {
-    font-size: 2em;
-    color: #fff;
-    font-weight: 500;
-    letter-spacing: 1px;
-    white-space: nowrap;
+  font-size: 2em;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 .header__title span {
-    font-weight: 700;
+  font-weight: 700;
 }
 .form {
-    max-width: 600px;
-    width: 90%;
-    min-width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 22.4px;
-    height: 3.4375em;
-    box-shadow: 0 0 20px rgba(63, 63, 63, 0.35);
+  max-width: 600px;
+  width: 90%;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 22.4px;
+  height: 3.4375em;
+  box-shadow: 0 0 20px rgba(63, 63, 63, 0.35);
 }
 .form__input {
-    border-end-start-radius: 15px;
-    border-start-start-radius: 15px;
-    border: none;
-    outline: none;
-    height: 100%;
-    width: 86%;
-    padding: 0 16px;
-    cursor: pointer;
+  border-end-start-radius: 15px;
+  border-start-start-radius: 15px;
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 86%;
+  padding: 0 16px;
+  cursor: pointer;
 }
 .form__btn {
-    width: 14%;
-    height: 106%;
-    border-start-end-radius: 15px;
-    border-end-end-radius: 15px;
-    border: none;
-    outline: none;
-    background-color: var(--Very-Dark-Gray);
-    cursor: pointer;
+  width: 14%;
+  height: 106%;
+  border-start-end-radius: 15px;
+  border-end-end-radius: 15px;
+  border: none;
+  outline: none;
+  background-color: var(--Very-Dark-Gray);
+  cursor: pointer;
 }
 .form__btn__arrow {
-    height: 17px;
-    width: 17px;
+  height: 17px;
+  width: 17px;
 }
 .modal-map {
-    max-width: 600px;
-    width: calc(86% - 30px);
-    min-width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    margin: 0 auto;
-    text-align: center;
-    transform: translateY(calc(340px - 50%));
-    background-color: #fff;
-    padding: 30px 0;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(63, 63, 63, 0.35);
-    row-gap: 29px;
-    z-index: 7777;
+  max-width: 600px;
+  width: calc(86% - 30px);
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  text-align: center;
+  transform: translateY(calc(340px - 50%));
+  background-color: #fff;
+  padding: 30px 0;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(63, 63, 63, 0.35);
+  row-gap: 29px;
+  z-index: 7777;
 }
 .info__title {
-    font-weight: 500;
-    color: var(--Dark-Gray);
-    font-size: 0.8125em;
-    margin: 0;
-    letter-spacing: 2px;
+  font-weight: 500;
+  color: var(--Dark-Gray);
+  font-size: 0.8125em;
+  margin: 0;
+  letter-spacing: 2px;
 }
 .info__dates {
-    font-weight: 500;
-    font-size: 1.4688em;
-    margin: 8px 0 0;
+  font-weight: 500;
+  font-size: 1.4688em;
+  margin: 8px 0 0;
 }
 #map {
-    position: relative;
-    height: calc(100vh - 340px);
+  position: relative;
+  height: calc(100vh - 340px);
 }
 .icon-location {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    z-index: 10000000;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 10000000;
 }
 @media (min-width: 1440px) {
-    .header {
-        font-size: 20px;
-        min-height: 280px;
-    }
-    .form {
-        max-width: 720px;
-    }
-    .modal-map {
-        flex-direction: row;
-        width: 75%;
-        max-width: 1400px;
-        text-align: start;
-        justify-content: space-around;
-        align-items: flex-start;
-        transform: translateY(calc(280px - 50%));
-    }
-    .modal-map__info {
-        max-width: 300px;
-        height: 95px;
-        padding-right: 50px;
-        border-right: 1px solid var(--Dark-Gray);
-    }
-    .info__title {
-        margin-bottom: 12px;
-    }
-    #map {
-        min-height: calc(100vh - 280px);
-    }
+  .header {
+    font-size: 20px;
+    min-height: 280px;
+  }
+  .form {
+    max-width: 720px;
+  }
+  .modal-map {
+    flex-direction: row;
+    width: 75%;
+    max-width: 1400px;
+    text-align: start;
+    justify-content: space-around;
+    align-items: flex-start;
+    transform: translateY(calc(280px - 50%));
+  }
+  .modal-map__info {
+    max-width: 300px;
+    height: 95px;
+    padding-right: 50px;
+    border-right: 1px solid var(--Dark-Gray);
+  }
+  .info__title {
+    margin-bottom: 12px;
+  }
+  #map {
+    min-height: calc(100vh - 280px);
+  }
 }
 @media (max-width: 400px) {
-    .header {
-        font-size: 14.5px;
-    }
-    .modal-map {
-        transform: translateY(calc(310px - 50%));
-        row-gap: 20px;
-        margin-top: 5px;
-    }
+  .header {
+    font-size: 14.5px;
+    min-height: 315px;
+  }
+  .modal-map {
+    transform: translateY(calc(315px - 50%));
+    row-gap: 20px;
+    margin-top: 5px;
+  }
+  #map {
+    height: calc(100vh - 300px);
+  }
 }
