@@ -156,4 +156,9 @@ body {
     .header {
         font-size: 14.5px;
     }
+    .modal-map {
+        transform: translateY(calc(310px - 50%));
+        row-gap: 20px;
+        margin-top: 5px;
+    }
 }
