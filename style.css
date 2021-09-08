@@ -70,7 +70,10 @@ body {
 }
 .form__btn {
   width: 14%;
-  height: 106%;
+  height: 102%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-start-end-radius: 15px;
   border-end-end-radius: 15px;
   border: none;
