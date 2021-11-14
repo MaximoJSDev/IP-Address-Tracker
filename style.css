@@ -59,6 +59,7 @@ body {
   box-shadow: 0 0 20px rgba(63, 63, 63, 0.35);
 }
 .form__input {
+  position: relative;
   border-end-start-radius: 15px;
   border-start-start-radius: 15px;
   border: none;
@@ -66,9 +67,9 @@ body {
   height: 100%;
   width: 86%;
   padding: 0 16px;
-  cursor: pointer;
 }
 .form__btn {
+  position: relative;
   width: 14%;
   height: 102%;
   display: flex;
@@ -80,6 +81,26 @@ body {
   outline: none;
   background-color: var(--Very-Dark-Gray);
   cursor: pointer;
+}
+.btn-load .form__btn__arrow {
+  visibility: hidden;
+}
+.btn-load::after {
+  content: "";
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border: 6px solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btn-load-spinner 1s linear infinite;
+  z-index: 1111111;
+}
+@keyframes btn-load-spinner {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
 }
 .form__btn__arrow {
   height: 17px;

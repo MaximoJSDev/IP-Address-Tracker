@@ -1,6 +1,7 @@
 // Formulario
 const form = document.querySelector(".form");
-let input = document.querySelector(".form__input");
+const input = document.querySelector(".form__input");
+const formBtn = document.querySelector(".form__btn")
 // Informacion
 const ipParagraph = document.getElementById("ip");
 const locations = document.getElementById("location");
@@ -8,13 +9,13 @@ const timezone = document.getElementById("timezone");
 const isp = document.getElementById("isp");
 // Map
 const titlesProvider = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
-var lat;
-var lng;
+let lat;
+let lng;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   inputIP = input.value;
-  if (inputIP !== "" && inputIP !== undefined) {
+  if (inputIP.trim() !== "" && inputIP !== undefined) {
     pedirInfo(inputIP);
   } else {
     alert("Please enter a valid IP address");
@@ -22,26 +23,26 @@ form.addEventListener("submit", (e) => {
 });
 const pedirInfo = async (ip) => {
   try {
-    if (inputIP.includes("com")) {
-      let secretAPI = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=at_oXuQi6cvttxp33vuNOMfhq3pHjbVa&domain=${ip}`
-      );
-      data = await secretAPI.json();
-      pintarInfo(data);
-    } else {
-      let secretAPI = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=at_oXuQi6cvttxp33vuNOMfhq3pHjbVa&ipAddress=${ip}`
-      );
-      data = await secretAPI.json();
-      pintarInfo(data);
-    }
+    formBtn.classList.add("btn-load");
+    inputIP.includes("com") == true
+      ? (secretAPI = await fetch(
+          `https://geo.ipify.org/api/v1?apiKey=at_oXuQi6cvttxp33vuNOMfhq3pHjbVa&domain=${ip}`
+        ))
+      : (secretAPI = await fetch(
+          `https://geo.ipify.org/api/v1?apiKey=at_oXuQi6cvttxp33vuNOMfhq3pHjbVa&ipAddress=${ip}`
+        ));
+    data = await secretAPI.json();
+    pintarInfo(data);
     actualizarMapa(data);
   } catch (error) {
     console.log(error);
     alert("Please enter a valid IP address");
+  } finally {
+    formBtn.classList.remove("btn-load");
   }
 };
 const pintarInfo = (data) => {
+  console.log(data);
   ipParagraph.textContent = data.ip;
   locations.textContent = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
   timezone.textContent = "UTC " + data.location.timezone;
